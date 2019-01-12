@@ -641,7 +641,7 @@ use `os.stat` on the path if you need those attributes.
 ```scala
 val filesSortedBySize = os.walk.attrs(wd / "misc", followLinks = true)
   .sortBy{case (p, attrs) => attrs.size}
-  .collect{case (p, attrs) if attrsisFile => p}
+  .collect{case (p, attrs) if attrs.isFile => p}
 
 filesSortedBySize ==> Seq(
   wd / "misc" / "echo",
